@@ -113,11 +113,296 @@
     
       <google-codelab-step label="Example 2 - With a pre-designed interface (code) &#43; prompt" duration="8">
         <p>For this example, the following prompt was used: &#34;Design a mobile app that is similar to a wallet, that shows you the active cards you have and that is with a dark background and a main green color. Furthermore, it will be for Android, so follow the principles of material design. Additionally, I will pass you an html code with the structure of the home screen that I desire you to follow:&#34;</p>
+
+<details style="background-color: #1e1e1e; border: 1px solid #333; border-radius: 8px; margin: 20px 0; overflow: hidden;">
+    <summary style="cursor: pointer; padding: 15px; font-weight: bold; color: #B9F18D; background-color: #2d2d2d; outline: none; list-style: none; display: flex; align-items: center;">
+        <span style="margin-right: 10px;">&gt;_</span>Click to view the source code 
+    </summary>
+    <div style="max-height: 500px; overflow-y: auto; padding: 0; margin: 0;">
+        <pre style="margin: 0; padding: 20px; color: #d4d4d4; font-size: 13px; line-height: 1.6; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; background-color: #1e1e1e;"><code style="color: #d4d4d4;">&lt;!DOCTYPE html&gt;
+&lt;html class="dark" lang="en"&gt;&lt;head&gt;
+&lt;meta charset="utf-8"/&gt;
+&lt;meta content="width=device-width, initial-scale=1.0" name="viewport"/&gt;
+&lt;title&gt;Neo-Material Finance - Home&lt;/title&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;amp;display=swap" rel="stylesheet"/&gt;
+&lt;link href="https://fonts.googleapis.com" rel="preconnect"/&gt;
+&lt;link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;amp;display=swap" rel="stylesheet"/&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;amp;display=swap" rel="stylesheet"/&gt;
+&lt;script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"&gt;&lt;/script&gt;
+&lt;script id="tailwind-config"&gt;
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#B9F18D", // Electric Lime
+                        "on-primary": "#183800",
+                        "background": "#000000", // True Black
+                        "surface-1": "#1C1C1E",
+                        "surface-2": "#2C2C2E",
+                        "surface-3": "#3A3A3C",
+                        "text-main": "#FFFFFF",
+                        "text-muted": "#9E9E9E",
+                        "error": "#FFB4AB",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"],
+                        "body": ["Work Sans", "sans-serif"], // Using Work Sans as proxy for Google Sans/Roboto combo for simplicity
+                    },
+                    borderRadius: {
+                        "2xl": "1.5rem",
+                        "3xl": "1.75rem",
+                        "4xl": "2rem", // 32px
+                        "pill": "9999px",
+                    },
+                    fontSize: {
+                        "display-lg": ["57px", "64px"],
+                        "headline-md": ["28px", "36px"],
+                    },
+                    backgroundImage: {
+                        'glass-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
+                        'neon-gradient': 'linear-gradient(135deg, #B9F18D 0%, #8BC34A 100%)',
+                        'card-1': 'linear-gradient(135deg, #4A148C 0%, #000000 100%)',
+                        'card-2': 'linear-gradient(135deg, #263238 0%, #000000 100%)',
+                    }
+                },
+            },
+        }
+    &lt;/script&gt;
+&lt;style&gt;
+        /* Custom noise texture for cards */
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        
+        /* Hide scrollbar for clean horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    &lt;/style&gt;
+&lt;style&gt;
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  &lt;/style&gt;
+  &lt;/head&gt;
+&lt;body class="bg-background text-text-main font-display min-h-screen flex flex-col antialiased selection:bg-primary selection:text-on-primary overflow-hidden"&gt;
+&lt;!-- Main Content Area --&gt;
+&lt;main class="flex-1 flex flex-col relative h-screen overflow-y-auto no-scrollbar pb-24"&gt;
+&lt;!-- Header --&gt;
+&lt;header class="flex items-center justify-between p-6 pt-8"&gt;
+&lt;div class="flex flex-col"&gt;
+&lt;span class="text-text-muted text-sm font-medium tracking-wide"&gt;GOOD EVENING&lt;/span&gt;
+&lt;h1 class="text-2xl font-bold tracking-tight"&gt;Alex&lt;/h1&gt;
+&lt;/div&gt;
+&lt;button class="relative group rounded-full overflow-hidden w-12 h-12 border-2 border-surface-2"&gt;
+&lt;img alt="User profile avatar showing a young man" class="w-full h-full object-cover" data-alt="User profile avatar showing a young man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChSIY2eJsV1VYWT3sZeABqF-yjtGlaMSCMc-9ChcdrUliUFNdJpFnUy4clFSfF3GlsGbQtcTsL8EFm63i84t0mMj4FjNukZNq7qYV2FuUr0g4p2gnSfBZJBxdYn_itLnqChWr_CH-DCo_2RmkF_5o_n9XPIEQttyZcVFXwe1xnaNCucWLnx-smbVBxAOS-4f7W_m__mSYGJT1l9V3hFklvmTxbU1WTJO09OrfV9hl6ieYQnJr2KkZ8U9nXKKypEDDooyT6faUrXfc"/&gt;
+&lt;/button&gt;
+&lt;/header&gt;
+&lt;!-- Balance Hero --&gt;
+&lt;section class="flex flex-col items-center justify-center mt-4 mb-8 text-center px-4"&gt;
+&lt;span class="text-primary text-sm font-medium tracking-wider uppercase mb-1"&gt;Total Liquidity&lt;/span&gt;
+&lt;div class="relative"&gt;
+&lt;h2 class="text-display-lg font-normal leading-none tracking-tight text-white"&gt;$24,592.40&lt;/h2&gt;
+&lt;!-- Decorative glow behind text --&gt;
+&lt;div class="absolute -inset-4 bg-primary/5 blur-[60px] rounded-full -z-10"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Quick Actions --&gt;
+&lt;div class="flex items-center gap-3 mt-8 w-full justify-center"&gt;
+&lt;button class="flex items-center gap-2 bg-surface-2 hover:bg-surface-3 transition-colors text-text-main px-5 py-3 rounded-pill"&gt;
+&lt;span class="material-symbols-outlined text-[20px]"&gt;add&lt;/span&gt;
+&lt;span class="text-sm font-medium"&gt;Add Money&lt;/span&gt;
+&lt;/button&gt;
+&lt;button class="flex items-center gap-2 bg-surface-2 hover:bg-surface-3 transition-colors text-text-main px-5 py-3 rounded-pill"&gt;
+&lt;span class="material-symbols-outlined text-[20px]"&gt;qr_code_scanner&lt;/span&gt;
+&lt;span class="text-sm font-medium"&gt;Scan&lt;/span&gt;
+&lt;/button&gt;
+&lt;button class="flex items-center justify-center w-12 h-12 bg-surface-2 hover:bg-surface-3 transition-colors rounded-full text-text-main"&gt;
+&lt;span class="material-symbols-outlined text-[20px]"&gt;more_horiz&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- Cards Carousel --&gt;
+&lt;section class="w-full mb-8"&gt;
+&lt;div class="flex overflow-x-auto no-scrollbar gap-4 px-6 snap-x snap-mandatory py-2"&gt;
+&lt;!-- Card 1 (Active) --&gt;
+&lt;div class="snap-center shrink-0 w-[340px] h-[210px] rounded-[28px] relative overflow-hidden group transition-transform hover:scale-[1.02] duration-300"&gt;
+&lt;!-- Background --&gt;
+&lt;div class="absolute inset-0 bg-card-1"&gt;&lt;/div&gt;
+&lt;!-- Noise Texture --&gt;
+&lt;div class="absolute inset-0 bg-noise mix-blend-overlay"&gt;&lt;/div&gt;
+&lt;!-- Glass Shine --&gt;
+&lt;div class="absolute -inset-[100%] bg-gradient-to-r from-transparent via-white/10 to-transparent rotate-45 translate-x-[-100%] animate-[shimmer_3s_infinite]"&gt;&lt;/div&gt;
+&lt;div class="relative h-full flex flex-col justify-between p-6"&gt;
+&lt;div class="flex justify-between items-start"&gt;
+&lt;span class="font-medium text-lg tracking-wide text-white/90"&gt;Neo Black&lt;/span&gt;
+&lt;span class="material-symbols-outlined text-white/60 text-[28px]"&gt;contactless&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-col gap-1"&gt;
+&lt;div class="flex items-center gap-3 mb-2"&gt;
+&lt;span class="text-2xl tracking-widest text-white/90 font-mono"&gt;••••&lt;/span&gt;
+&lt;span class="text-2xl tracking-widest text-white/90 font-mono"&gt;4242&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="flex justify-between items-end"&gt;
+&lt;div class="flex flex-col"&gt;
+&lt;span class="text-[10px] text-white/50 uppercase tracking-widest"&gt;Balance&lt;/span&gt;
+&lt;span class="text-lg font-medium text-white"&gt;$8,450.00&lt;/span&gt;
+&lt;/div&gt;
+&lt;img alt="Visa Logo" class="h-5 object-contain opacity-90 invert grayscale brightness-200" data-alt="Visa payment network logo in white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZGBlfmVROVCsqf1zqGKA1FTJ3dBTUMNfaDJARm5KFUF-IQeJC3k2wQkqK00eQSKhNpRlkLoNhDhvVcuPj0w57R8Vv_d3m7FEKQBPDA_C-ZTTldAs7IIfwzrw8jbJorVVbVPz0_VYVDvqvfnkyTVEqp3g_jFvok81ot9I4HULTqgaImBxmtqfu-1HxeXq8G__IEhtwwqor61FNrEMx_Yt4itReLRrwhEhoafPYKKqb10m06lENEBbMoL-zNOJdj6-RIeDONJvmb0o"/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Card 2 --&gt;
+&lt;div class="snap-center shrink-0 w-[340px] h-[210px] rounded-[28px] relative overflow-hidden group transition-transform hover:scale-[1.02] duration-300"&gt;
+&lt;!-- Background --&gt;
+&lt;div class="absolute inset-0 bg-card-2"&gt;&lt;/div&gt;
+&lt;!-- Noise Texture --&gt;
+&lt;div class="absolute inset-0 bg-noise mix-blend-overlay"&gt;&lt;/div&gt;
+&lt;div class="relative h-full flex flex-col justify-between p-6"&gt;
+&lt;div class="flex justify-between items-start"&gt;
+&lt;span class="font-medium text-lg tracking-wide text-white/90"&gt;Savings&lt;/span&gt;
+&lt;span class="material-symbols-outlined text-white/60 text-[28px]"&gt;contactless&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-col gap-1"&gt;
+&lt;div class="flex items-center gap-3 mb-2"&gt;
+&lt;span class="text-2xl tracking-widest text-white/90 font-mono"&gt;••••&lt;/span&gt;
+&lt;span class="text-2xl tracking-widest text-white/90 font-mono"&gt;8888&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="flex justify-between items-end"&gt;
+&lt;div class="flex flex-col"&gt;
+&lt;span class="text-[10px] text-white/50 uppercase tracking-widest"&gt;Balance&lt;/span&gt;
+&lt;span class="text-lg font-medium text-white"&gt;$16,142.40&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="flex gap-1"&gt;
+&lt;div class="w-6 h-6 rounded-full bg-white/80"&gt;&lt;/div&gt;
+&lt;div class="w-6 h-6 rounded-full bg-white/50 -ml-3"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Add Card Placeholder --&gt;
+&lt;div class="snap-center shrink-0 w-[80px] h-[210px] rounded-[28px] relative overflow-hidden bg-surface-1 border border-surface-2 flex items-center justify-center group cursor-pointer hover:bg-surface-2 transition-colors"&gt;
+&lt;div class="flex flex-col items-center gap-2 text-text-muted group-hover:text-primary transition-colors"&gt;
+&lt;span class="material-symbols-outlined text-3xl"&gt;add_card&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Pagination Indicator --&gt;
+&lt;div class="flex justify-center gap-2 mt-2"&gt;
+&lt;div class="w-2 h-2 rounded-full bg-primary"&gt;&lt;/div&gt;
+&lt;div class="w-2 h-2 rounded-full bg-surface-3"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- Recent Activity Section --&gt;
+&lt;section class="flex-1 bg-surface-1 rounded-t-[32px] px-6 pt-8 pb-32"&gt;
+&lt;div class="flex items-center justify-between mb-6"&gt;
+&lt;h3 class="text-headline-md font-medium text-white"&gt;Recent Activity&lt;/h3&gt;
+&lt;button class="text-primary text-sm font-medium hover:text-white transition-colors"&gt;View All&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-col gap-4"&gt;
+&lt;!-- Transaction Item 1 --&gt;
+&lt;div class="flex items-center justify-between group cursor-pointer"&gt;
+&lt;div class="flex items-center gap-4"&gt;
+&lt;div class="w-12 h-12 rounded-full bg-surface-2 flex items-center justify-center text-white group-hover:bg-surface-3 transition-colors"&gt;
+&lt;span class="material-symbols-outlined"&gt;local_taxi&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-col"&gt;
+&lt;span class="text-base font-medium text-white"&gt;Uber Ride&lt;/span&gt;
+&lt;span class="text-sm text-text-muted"&gt;Transport • Today, 2:30 PM&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;span class="text-base font-medium text-white"&gt;-$24.50&lt;/span&gt;
+&lt;/div&gt;
+&lt;!-- Transaction Item 2 --&gt;
+&lt;div class="flex items-center justify-between group cursor-pointer"&gt;
+&lt;div class="flex items-center gap-4"&gt;
+&lt;div class="w-12 h-12 rounded-full bg-surface-2 flex items-center justify-center text-white group-hover:bg-surface-3 transition-colors"&gt;
+&lt;span class="material-symbols-outlined"&gt;music_note&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-col"&gt;
+&lt;span class="text-base font-medium text-white"&gt;Spotify&lt;/span&gt;
+&lt;span class="text-sm text-text-muted"&gt;Subscription • Yesterday&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;span class="text-base font-medium text-white"&gt;-$12.99&lt;/span&gt;
+&lt;/div&gt;
+&lt;!-- Transaction Item 3 --&gt;
+&lt;div class="flex items-center justify-between group cursor-pointer"&gt;
+&lt;div class="flex items-center gap-4"&gt;
+&lt;div class="w-12 h-12 rounded-full bg-surface-2 flex items-center justify-center text-primary group-hover:bg-surface-3 transition-colors"&gt;
+&lt;span class="material-symbols-outlined"&gt;arrow_downward&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-col"&gt;
+&lt;span class="text-base font-medium text-white"&gt;Transfer from Mike&lt;/span&gt;
+&lt;span class="text-sm text-text-muted"&gt;Income • Oct 24&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;span class="text-base font-medium text-primary text-shadow-glow"&gt;+$50.00&lt;/span&gt;
+&lt;/div&gt;
+&lt;!-- Transaction Item 4 --&gt;
+&lt;div class="flex items-center justify-between group cursor-pointer"&gt;
+&lt;div class="flex items-center gap-4"&gt;
+&lt;div class="w-12 h-12 rounded-full bg-surface-2 flex items-center justify-center text-white group-hover:bg-surface-3 transition-colors"&gt;
+&lt;span class="material-symbols-outlined"&gt;shopping_bag&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-col"&gt;
+&lt;span class="text-base font-medium text-white"&gt;Whole Foods&lt;/span&gt;
+&lt;span class="text-sm text-text-muted"&gt;Groceries • Oct 22&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;span class="text-base font-medium text-white"&gt;-$142.80&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;/main&gt;
+&lt;!-- Floating Action Button --&gt;
+&lt;button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-on-primary rounded-[1.25rem] shadow-[0_0_20px_rgba(185,241,141,0.3)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50"&gt;
+&lt;span class="material-symbols-outlined text-3xl font-bold"&gt;swap_horiz&lt;/span&gt;
+&lt;/button&gt;
+&lt;!-- Bottom Navigation Bar --&gt;
+&lt;nav class="fixed bottom-0 w-full bg-surface-1/90 backdrop-blur-xl border-t border-surface-2 pb-6 pt-3 px-6 z-40"&gt;
+&lt;div class="flex justify-between items-center max-w-sm mx-auto"&gt;
+&lt;a class="flex flex-col items-center gap-1 text-primary" href="#"&gt;
+&lt;span class="material-symbols-outlined font-variation-settings-fill"&gt;home&lt;/span&gt;
+&lt;/a&gt;
+&lt;a class="flex flex-col items-center gap-1 text-text-muted hover:text-white transition-colors" href="#"&gt;
+&lt;span class="material-symbols-outlined"&gt;credit_card&lt;/span&gt;
+&lt;/a&gt;
+&lt;a class="flex flex-col items-center gap-1 text-text-muted hover:text-white transition-colors" href="#"&gt;
+&lt;span class="material-symbols-outlined"&gt;analytics&lt;/span&gt;
+&lt;/a&gt;
+&lt;a class="flex flex-col items-center gap-1 text-text-muted hover:text-white transition-colors" href="#"&gt;
+&lt;span class="material-symbols-outlined"&gt;person&lt;/span&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;/nav&gt;
+&lt;style&gt;
+        /* Utility for filled icons */
+        .font-variation-settings-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+    &lt;/style&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+    </div>
+</details>
 <p>The HTML code previously shown builds this interface:</p>
 <p class="image-container"><img style="width: 240.96px" src="img\\96e44ae6fbc41734.png"></p>
 <p>As in the previous example, Firebase Studio creates an execution plan in which it explains the details it will take into account to create the prototype. It is important to remember to validate this execution plan to obtain better results. Once all the details are adjusted to the needs, it can be continued with the creation of the prototype. On this occasion, only one screen has been created for the digital wallet application. But a consideration must be taken into account, whether in &#34;Prototype Mode&#34; or in &#34;Code Mode&#34;, and it is that the probability that failures exist at the moment of inserting code is high. This means, that the suggested is to debug in &#34;Code Mode&#34; screen by screen to correct said errors early. It can be known that there are errors in the prototype by visualizing that in the lower left corner the &#34;N&#34; is marked in red. The enormous advantage that inserting code in Firebase Studio has is that the reliability between the design and the prototype is very high, producing much more exact results.</p>
 <p class="image-container"><img style="width: 601.70px" src="img\\ae9d25159648a0f1.png"></p>
-<aside class="special"><p><strong>Note:</strong> The reference code and image were generated by another Google tool called <a href="https://stitch.withgoogle.com/" target="_blank">Google Stitch</a>.. This tool can generate graphic interfaces based on a prompt, as illustrated in this example.</p>
+<aside class="special"><p><strong>Note:</strong> The reference code and image were generated by another Google tool called <a href="https://stitch.withgoogle.com/" target="_blank">Google Stitch</a>. This tool can generate graphic interfaces based on a prompt, as illustrated in this example. The source code can be copied into Google Stitch, however, it is clarified that this tool is powered by an LLM, therefore the generated output may look slightly different from the illustration.</p>
 </aside>
 
 
