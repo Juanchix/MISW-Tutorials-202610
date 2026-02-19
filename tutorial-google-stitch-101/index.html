@@ -1,0 +1,385 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>First Steps on AI-assisted UI prototyping with Google Stitch</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
+  <google-codelab codelab-gaid="N/A"
+                  codelab-ga4id=""
+                  id="tutorial-google-stitch-101"
+                  title="First Steps on AI-assisted UI prototyping with Google Stitch"
+                  environment="web"
+                  feedback-link="j.ortegam@uniandes.edu.co">
+    
+      <google-codelab-step label="Introduction" duration="3">
+        <p>The software development and user experience (UX/UI) design industry is undergoing a massive transformation. The introduction of generative artificial intelligence tools, specifically those based on multimodal Large Language Models (LLMs) such as Gemini, ChatGPT, Claude, etc., has redefined the role of the interface designer. It is no longer a purely artisanal discipline, where technical competence was measured by skill in manipulating pixels one by one, but rather a new era of &#34;semantic design&#34; and algorithm-assisted creative direction.</p>
+<p>The Google Stitch tool, developed by Google Labs, allows moving from an intention articulated in natural language to a functional, coded interface in seconds. However, the effectiveness of this tool does not lie in its computing power, but in the operator&#39;s ability to communicate precise instructions based on a deep understanding of existing design systems.</p>
+<p>This tutorial aims to teach users how to interact with Google Stitch by applying different Design systems. It is not simply about learning how to use a tool, but about understanding how AI interprets and executes the standards of five Design systems, namely: Material Design, Microsoft Fluent, Glass Light, Neumorphism, and Apple Human Interface Guidelines.</p>
+<p>Throughout the chapters, the text will explore the technical architecture of Google Stitch, dissect the theory behind each Design System, and, crucially, develop advanced prompt engineering that allows exploiting the capabilities of Gemini models to generate interfaces that are not only aesthetically striking but also technically viable and semantically correct.</p>
+<aside class="warning"><p><strong>Note:</strong> It is important to note that artificial intelligence does not replace design theory; on the contrary, it makes it more indispensable than ever, since AI requires instructions based on clear rules to avoid generic results or visual hallucinations. It should also be clarified that throughout this tutorial, some examples of interfaces created by Google Stitch with certain prompts are shown. Since LLMs are probabilistic models, responses may differ depending on the instructions given.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="What is Google Stitch?" duration="10">
+        <p>Google Stitch represents Google&#39;s most significant foray into the AI-assisted &#34;Design-to-Code&#34; space. Unlike stochastic image generators such as Midjourney or DALL-E, Stitch is architecturally designed to understand the Document Object Model (DOM) and component hierarchy of a user interface.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\9c94d5f7376a17be.png"></p>
+<h2 is-upgraded>Performance and Design Settings in Google Stitch</h2>
+<p>The power of Stitch comes from its hybrid engine, which allows the user to switch between speed and fidelity depending on the stage of the project. This architecture is based on the Gemini family of models, specifically tuned for frontend design.</p>
+<p>There are three possible options:</p>
+<ol type="1" start="1">
+<li><strong> 3.0 Flash: </strong>This is the standard and fastest option, as its name suggests. It is based on LLM Gemini 3.0 Flash. Ideal for creating a first draft and brainstorming user ideas for later manual modification in Figma.</li>
+<li><strong>3.0 Pro: </strong>Ideal for product presentations and optimized for production environments. It is the highest-performance engine, as it is based on LLM Gemini 3 Pro, prioritizing analytical capacity over immediacy. The generation process is slower because the model evaluates the ramifications of each instruction: from navigation flow to hierarchical and chromatic consistency.</li>
+<li><strong>Redesign:</strong> If a designer already has a created graphic interface but wishes to modify it, this is the appropriate option. It utilizes another Google Artificial Intelligence application, Nano Banana Pro (also based on Gemini 3.0 Pro), to make adjustments to existing interfaces and provide a new look according to the instructions.</li>
+<li><strong>Ideate:</strong> With this option, a previous conversation can be had with the LLM. Initially, it gives design options based on the written prompt, and subsequently, it creates a design plan which can be refined by the user. With the refined design, it creates the graphic interfaces. Ideal if it is desired to maintain a strict control of the generated interfaces</li>
+</ol>
+<p class="image-container"><img style="width: 576.96px" src="img\\dd6bb581dceafe40.png"></p>
+<h2 is-upgraded>Integration, Export Capabilities and Features</h2>
+<p>A common criticism of AI-powered design tools is their isolation from the actual development workflow. Stitch addresses this through deep integrations that position it as &#34;middleware&#34; between concept and production.</p>
+<ul>
+<li><strong>Figma Integration:</strong> Stitch offers a &#34;Copy to Figma&#34; option that transfers not just an image, but an entire vector node structure. This functionality allows the AI output to serve as the starting point for professional manual refinement, respecting the iterative nature of product design.</li>
+<li><strong>Frontend Code Generation:</strong> Stitch is capable of exporting the generated interface to standard HTML/CSS, as well as to modern frameworks such as React and Flutter.</li>
+</ul>
+<p class="image-container"><img style="width: 480.00px" src="img\\86675b1f57cfe733.png"></p>
+<ul>
+<li><strong>Predictive Heat Map:</strong> Once Stitch has designed a preliminary prototype following instructions, it can predict the interactions an end user will have and display them as a heat map on the created interface.The information derived from the heatmap of potential user interactions proves highly valuable for enhancing User Experience, a benefit made possible by the predictive telemetry suggested by Stitch.</li>
+</ul>
+<p class="image-container"><img style="width: 480.00px" src="img\\69c4b235f16cf6e2.png"></p>
+<ul>
+<li><strong>Editing on the Canvas:</strong> On interfaces designed by Stitch, details of the result—such as the main color, borders, typography, and even the theme—can be changed, allowing the user to view several options on the same screen within the canvas. These options can be saved as &#34;Design Systems&#34;, so that these specifications can be applied to future screens. </li>
+</ul>
+<p class="image-container"><img style="width: 624.00px" src="img\\3af46815a752ace7.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img\\187f2acea7acd5ad.png"></p>
+<ul>
+<li><strong>Interact with the Created Design:</strong> Once Stitch has generated screens according to the instructions, these can be grouped and prototyped. After the prototype is created, interaction is possible, bringing the ideas captured on the canvas to life. The prototype can even be adapted to tablets and computers.</li>
+</ul>
+<p class="image-container"><img style="width: 624.00px" src="img\\6710881160f72dc8.png">        </p>
+<p class="image-container"><img style="width: 480.96px" src="img\\e90686f1a11bfefb.png"></p>
+<h2 is-upgraded>Current Limitations and Considerations</h2>
+<p>It is essential to understand that there are limitations to what Stitch can achieve in its current state (February 2026):</p>
+<ul>
+<li><strong>Absence of Business Logic:</strong> Stitch designs the presentation layer (the &#34;View&#34; in the MVC pattern). It does not generate backend logic, database connections, or actual authentication. Interfaces are visually complete but functionally static.</li>
+<li><strong>Consistency in Long Flows:</strong> Although the recent introduction of &#34;Prototypes&#34; allows screens to be linked, maintaining pixel-perfect visual consistency across 50, or more, different screens remains a challenge. The model can &#34;hallucinate&#34; variations in button radius or primary color tone between screens if context is not reinforced through strict prompts or image references.</li>
+<li><strong>Prompt Dependency:</strong> The quality of the result is directly proportional to the specificity of the prompt. A vague prompt such as &#34;make a pretty app&#34; will produce generic and unusable results.</li>
+<li><strong>Limited Daily Use:</strong> It should be noted that this tool has a limited daily usage capacity across its various models. The daily limit is 400 prompts for the Fast, Gemini 3.0 Flash, and Gemini 3.0 Pro models, and 15 redesigns for the Nano Banana Pro Redesign model. Although this limit is high, it is important to take advantage of good prompts to obtain the desired results.</li>
+</ul>
+<aside class="special"><p><strong>Note:</strong> In the context of LLMs, a hallucination is an unexpected response to a question. For example, if an LLM is asked about the Treaty of Versailles and responds with a spaghetti recipe, the model is said to have hallucinated.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Design Systems" duration="3">
+        <p>To enable artificial intelligence to design a graphical interface, describing the desired look is insufficient; the method of construction must be specified. This is where knowledge of Design Systems applies. These systems are not mere collections of visual styles; they are coded grammars that define how elements on a screen behave, interact, and appear. In this tutorial, five Design Systems will be reviewed, classified into three categories:</p>
+<ol type="1" start="1">
+<li><strong>Native Operating Systems:</strong> Material Design (Google) and Human Interface Guidelines (Apple). These are the &#34;native&#34; standards users expect on their respective devices. They have strict usability and accessibility rules.</li>
+<li><strong>Cross-Platform Corporate Systems:</strong> Fluent UI (Microsoft). Designed to work across multiple ecosystems (Windows, Web, iOS, Android) while maintaining a consistent brand identity.</li>
+<li><strong>Emerging Aesthetic Trends:</strong> Neumorphism and Glass Light. These are not complete operating systems, but visual styles, or &#34;skins,&#34; that are applied over interface structures to evoke tactile or futuristic sensations.</li>
+</ol>
+<h2 is-upgraded>AI and Design Tokens </h2>
+<p>Models such as Gemini have been trained with millions of lines of code and documentation from public design systems. When a model processes a design request, it does not &#34;imagine&#34; abstract colors; it accesses a latent representation of Design Tokens.</p>
+<p>A design token is the smallest unit of visual information. Instead of specifying &#34;light blue #4285F4,&#34; a design system uses &#34;sys.color.primary.&#34; Understanding this is vital for prompt engineering. If Stitch is asked to &#34;change blue to red,&#34; it could change all blues, including those in the sky in a photo. Instead, if instructions specify to &#34;update the primary color token to red,&#34; then the system semantically understands that it should alter only the main interactive elements, maintaining consistency. Later sections will explain how to give instructions to Stitch to obtain optimal results.</p>
+<p>To generate optimal interfaces with Stitch, it is necessary to understand Design systems so that the designer knows when to use an operating system (for usability and familiarity) and when to apply an aesthetic trend (for visual impact or specific branding), and how to mix both without disrupting the user experience.</p>
+<aside class="special"><p><strong>Note:</strong> In the context of LLMs, a hallucination is an unexpected response to a question. For example, if an LLM is asked about the Treaty of Versailles and responds with a spaghetti recipe, the model is said to have hallucinated.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Methodological Framework and Design System Analysis" duration="3">
+        <p>Each Design System is examined in detail, addressing its history, defining characteristics, and operational rules. These design systems possess distinct differences, and recognizing these nuances is essential for selecting the appropriate design for specific functional requirements. To facilitate visualization, the analysis relies on two distinct illustrative frameworks for each system: a recurring cross-cutting example and a context-specific example.</p>
+<p>The cross-cutting example focuses on an academic mobile application designed to facilitate the daily organizational needs of a university student. For this scenario, the Gemini 3.0 Pro model was engaged with the following directive:</p>
+<ul>
+<li><em>&#34;Design a mobile application for a student aiming to organize university project notes and exam study materials. Include a calendar interface for tracking critical deadlines. The primary color scheme should be light blue, accompanied by an elegant typeface.&#34;</em></li>
+</ul>
+<p>Each design system will display the result of this prompt so that changes can be compared with other systems. </p>
+<p>In contrast, the specific examples will be presented within the framework of each individual Design System. These instances will be detailed alongside their respective prompts, the specific LLM employed, and the recorded generation latency. </p>
+<p>To follow this tutorial, we suggest that you search for Google Stitch in another browser tab and run the suggested prompts so that you can compare the suggested prototypes. The results obtained may differ.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Material Design 3 Expressive (Google)" duration="10">
+        <p><strong>History:</strong> Material Design was introduced by Google in 2014 to unify the visual experience across its products using the metaphor of &#34;smart paper and ink&#34;. After a decade of evolution, the system matured into &#34;Material You&#34; (Material 3) in 2021, introducing dynamic color extraction. In 2025-2026, the current iteration, Material 3 Expressive, emerged as a response to past rigidity, seeking interfaces that are not only functional but emotionally resonant and adaptable to foldable screens and new form factors.</p>
+<p><strong>Characteristics: </strong>This system is built on the principle that &#34;form follows feeling.&#34; The Expressive variant prioritizes user emotion and personalization over strict standardization. Its core characteristics include Dynamic Color, where the interface inherits the user&#39;s wallpaper palette, and the use of organic shapes that break the traditional grid. Elevation is no longer just represented by drop shadows but by &#34;tonal elevation,&#34; where higher surfaces subtly change color, creating a softer, modern visual hierarchy .</p>
+<p><strong>Operational rules:</strong> Strict but flexible. Colors are never absolute solids; they must be tokens extracted from a &#34;seed color&#34; that generates tonal palettes (Primary, Secondary, Surface, Error) across gradations from 0 to 100. Borders vary drastically: small buttons use a pill shape (full radius), while large containers (cards) use asymmetric radii or &#34;squircles&#34; of 16dp to 24dp . The background is not pure white (#FFFFFF), but very light warm or cool tones (Surface-1). Shadows are diffused and slightly tinted with the primary color. The official typography is Google Sans Flex for headlines and Roboto for body text . Interactive elements (FABs, buttons) are large and prominent to facilitate one-handed usage.</p>
+<p><strong>This is how the Cross-cutting example looks like using Material Design 3 Expressive:</strong></p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Student Notes Home</p>
+</td><td colspan="1" rowspan="1"><p>Note Editor View</p>
+</td><td colspan="1" rowspan="1"><p>Deadline Calendar</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 183.36px" src="img\\2236e884b12dda66.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 183.36px" src="img\\ddfa20a18dc62b09.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\ad1cf0ce4c9f2f5f.png"></p>
+</td></tr>
+</table>
+<p><strong>Now, a specific example will be created from scratch with a prompt:</strong></p>
+<p><strong><em>Prompt:</em></strong></p>
+<p><em> Design an app focused on time management. I want it to have a Pomodoro timer, a schedule with my weekly meetings, and a calendar for pending tasks. Use green and white as the main colors. I want it to look fun and use bold typography.<br></em></p>
+<p><strong><em>Used model:</em></strong></p>
+<p><em> Gemini 3.0 Flash<br></em></p>
+<p><strong><em>Estimated waiting time:</em></strong></p>
+<p><em> 45 seconds</em></p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Pomodoro Timer Focus</p>
+</td><td colspan="1" rowspan="1"><p>Weekly Meeting Schedule</p>
+</td><td colspan="1" rowspan="1"><p>Task Calendar View</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\6e3e11daf7635285.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\85324d6030d21a64.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\9fe402d3380abb34.png"></p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Microsoft Fluent UI 2" duration="10">
+        <p><strong>History:</strong> Fluent Design System was revealed by Microsoft in 2017 as the spiritual successor to &#34;Metro,&#34; evolving from flat tiles into an immersive system incorporating light, depth, motion, material, and scale. Fluent was born to unify the Windows ecosystem with mixed reality (HoloLens) and mobile platforms. The current version, Fluent 2, consolidates these ideas into a truly cross-platform system designed to feel &#34;native&#34; on Windows 11, iOS, and Android while respecting each host&#39;s conventions.</p>
+<p><strong>Characteristics:</strong> Fluent&#39;s principles focus on the simulation of physical digital materials and light, with a philosophy of being &#34;Natural on every platform&#34;. Its distinctive characteristics are its Materials, specifically Mica (opaque, tinted by the theme) and Acrylic (translucent, frosted glass effect with noise) . Fluent uses Light not just for illumination, but to guide the user&#39;s focus, simulating stacked acrylic sheets that provide depth and hierarchy.</p>
+<p><strong>Operational rules:</strong> Fluent requires precision in material application. Background colors are usually neutral (warm or cool grays) upon which Acrylic materials are applied (with 30px blur and noise texture) for side panels and menus. Borders have subtle rounding, generally 4px to 8px, much tighter than Material Design. Shadows are soft and directional, simulating overhead lighting. A crucial detail is the rim highlight: cards and buttons often feature a 1px stroke with transparency (e.g., 10% white) to simulate thickness and refraction. Standard typography is Segoe UI for Windows/Web and system fonts (San Francisco/Roboto) for mobile, always utilizing light weights (Semilight/Regular)</p>
+<p><strong>This is how the Cross-cutting example looks like using Microsoft Fluent 2:</strong></p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Student Notes Home</p>
+</td><td colspan="1" rowspan="1"><p>Note Editor View</p>
+</td><td colspan="1" rowspan="1"><p>Deadline Calendar</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\dc2d8051fc9b9565.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\cbbfd14aa3c64fe6.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\c11b157f5889ca31.png"></p>
+</td></tr>
+</table>
+<p><strong>Now, a specific example will be created from scratch with a prompt:</strong></p>
+<p><strong><em>Prompt: </em></strong></p>
+<p><em>Design an app for a cinema. Use Mica material for the background base and Acrylic for the bottom sheet navigation. Typography should be Segoe UI. Buttons should have subtle depth and a 1px distinct border. The main color is red. <br></em></p>
+<p><strong><em>Used model:</em></strong></p>
+<p><em> Gemini 3.0 Pro<br></em></p>
+<p><strong><em>Estimated waiting time:</em></strong></p>
+<p><em> 110 seconds</em></p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Cinema Home Screen</p>
+</td><td colspan="1" rowspan="1"><p>Movie Details Screen</p>
+</td><td colspan="1" rowspan="1"><p>Seat Selection Screen</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\40be43d63ee8beff.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\23aafef73bc2cec2.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\8a797a26d2dca661.png"></p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Neumorphism" duration="10">
+        <p><strong>History:</strong> The term &#34;Neumorphism&#34; (New Skeuomorphism) was coined around 2019-2020 after designers observed a trend merging old-school realism with modern minimalism . Although its mass adoption was slowed by accessibility concerns, it has persisted as a niche style for &#34;tactile&#34; interfaces, such as smart home controls, audio synthesizers, or premium banking apps. It stems from a desire to recover the &#34;joy of touch&#34; for digital buttons.</p>
+<p><strong>Characteristics: </strong>The fundamental principle is Extrusion. Elements do not float above the background; they emerge from it as if molded from the same soft plastic or clay . The defining feature is the play of light: to create volume without visible borders, it uses two opposing shadows—one dark (drop shadow) and one light (highlight). This creates a continuous, &#34;Soft UI&#34; surface that invites physical interaction.</p>
+<p><strong>Operational rules:</strong> The rules are mathematical. The golden rule is Monochromatism: the color of the element must be identical to the background (usually a light gray #E0E5EC or desaturated pastels) . Shadows are double: a semi-transparent black shadow on the bottom-right and a white shadow on the top-left . Borders must be extremely rounded (radii of 20px-50px); sharp corners break the illusion of &#34;soft extrusion.&#34; No visible strokes are used except for &#34;pressed&#34; states. Typography is usually dark gray (not pure black) to maintain softness . Accessibility is critical; this style should not be used for primary actions without adding extra contrast, as the lack of clear edges makes it difficult for visually impaired users.</p>
+<p><strong>This is how the Cross-cutting example looks like using Neumorphism:</strong></p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Student Notes Home</p>
+</td><td colspan="1" rowspan="1"><p>Note Editor View</p>
+</td><td colspan="1" rowspan="1"><p>Deadline Calendar</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\150f87d4bc8a191a.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\9b9d97b7cfff2d9c.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\c57133deee51fce5.png"></p>
+</td></tr>
+</table>
+<p><strong>Now, a specific example will be created from scratch with a prompt:</strong></p>
+<p><strong><em>Prompt: </em></strong></p>
+<p><em>An elegant app for dinner reservations using neumorphism style. Use purple for the shadows<br></em></p>
+<p><strong><em>Used model:</em></strong></p>
+<p><em> Gemini 3.0 Pro<br></em></p>
+<p><strong><em>Estimated waiting time:</em></strong></p>
+<p><em> 120 seconds</em></p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Reservation Home Screen</p>
+</td><td colspan="1" rowspan="1"><p>Restaurant Detail and Booking</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 211.00px" src="img\\e581340347d8c153.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 208.00px" src="img\\dabacfcfdba3c3c5.png"></p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Glass Light (Glassmorphism)" duration="10">
+        <p><strong>History:</strong> The Glass Light style is a direct evolution of the &#34;Glassmorphism&#34; trend that exploded in 2020 with macOS Big Sur, now refined by modern 3D rendering influences . While original Glassmorphism was just &#34;blurry glass,&#34; Glass Light incorporates advanced optical physics inspired by how real light interacts with prisms and crystal surfaces. It emerged from the design community as a reaction to Flat Design, seeking to reintroduce beauty, depth, and a feel to interfaces.</p>
+<p><strong>Characteristics:</strong> The guiding principle is Refraction. It is not just about transparency, but how the glass object distorts and beautifies what is behind it . The key visual feature is the combination of dark or colorful backgrounds (often using mesh gradients) with high-purity white translucent layers. It aims for a &#34;crystal lab&#34; or &#34;digital jewelry&#34; aesthetic: clean, luminous, light, and sophisticated . Hierarchy is established through opacity and blur rather than size.</p>
+<p><strong>Operational rules:</strong> prompts must focus on &#34;advanced CSS styling.&#34; Wallpapers must be dark or vibrant (aurora gradients) for the glass effect to be visible. Containers (cards) use a white background with very low opacity (5% to 20%) and a high background blur (20px-40px) . A subtle 1px border is mandatory, usually a linear gradient from opaque white to transparent to simulate a specular reflection on the top-left edge . Instead of heavy black shadows, it uses diffused glows in the content&#39;s color. Typography is thin, and geometric sans-serif. Accessibility is a challenge here; extreme care must be taken with text contrast, often requiring soft shadows behind letters to ensure legibility.</p>
+<p><strong>This is how the Cross-cutting example looks like using Cross-cutting example:</strong></p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Student Notes Home</p>
+</td><td colspan="1" rowspan="1"><p>Note Editor View</p>
+</td><td colspan="1" rowspan="1"><p>Deadline Calendar</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 189.35px" src="img\\5bcdef8698df1d3d.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 189.35px" src="img\\e37f71ac82d1efa2.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 189.35px" src="img\\384ee2239f156302.png"></p>
+</td></tr>
+</table>
+<p><strong>Now, a specific example will be created from scratch with a prompt, then will be refined using the Redesign option:</strong></p>
+<p><strong><em>Prompt 1</em></strong></p>
+<p><em>: Design a weather app interface for iOS.<br>Context: Immersive, atmospheric experience.<br>Background: A high-resolution animated image of a thunderstorm (dark blue/purple clouds).<br>Main Component: A central &#39;Current Weather&#39; card centered on screen.<br>Style: The card must be highly transparent (10% opacity white) with a heavy background blur (40px) to make the text legible but keep the storm visible. Add a 1px solid white border with 40% opacity. Include a specular highlight on the top-left edge.<br>Typography: Large, thin sans-serif font (100pt) for the temperature. Pure white.<br>Details: Use iconography that looks like frosted glass for &#39;Rain&#39;, &#39;Wind&#39;, &#39;Humidity&#39;. Ensure the layout feels spacious and ethereal.&#34;<br></em></p>
+<p><strong><em>Used model: </em></strong></p>
+<p><em>Ideate<br></em></p>
+<p><strong><em>Estimated waiting time: </em></strong></p>
+<p><em>20 seconds</em></p>
+<p><strong><em>Prompt 2:</em></strong></p>
+<p><em> Applies the glass light Design system to this screen, and adds hourly weather forecasts.<br></em></p>
+<p><strong><em>Used model: </em></strong></p>
+<p><em>Redesign (Nano Banana Pro)<br></em></p>
+<p><strong><em>Estimated waiting time: </em></strong></p>
+<p><em>30 seconds</em></p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Atmospheric Weather Home (Prompt 1)</p>
+</td><td colspan="1" rowspan="1"><p>Stormy Weather Dashboard</p>
+</td><td colspan="1" rowspan="1"><p>Atmospheric Weather Home (Redesigned with Prompt 2)</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 189.35px" src="img\\91ea46864f2b10f4.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 189.35px" src="img\\99444216a8e1b8a2.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 189.35px" src="img\\705dc76b0b74b46b.png"></p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Apple Human Interface Guidelines (HIG)" duration="10">
+        <p><strong>History:</strong> Apple&#39;s Human Interface Guidelines (HIG) have been the industry standard since 1984.1 By 2025-2026, influenced by spatial computing (visionOS), Apple introduced Liquid Glass. This is not a mere visual skin, but a systemic evolution of translucent materials designed to integrate the interface with physical hardware and content in an organic, fluid manner.</p>
+<p><strong>Characteristics: </strong>Apple&#39;s three immutable principles are Deference (UI does not compete with content), Clarity, and Depth . The new Liquid Glass feature reinterprets depth: navigation bars and tab bars are no longer static barriers but fluid surfaces that allow content to slide underneath, applying real-time optical distortion and variable blur that improves legibility while maintaining context . It is an interface that &#34;breathes&#34; with the content.</p>
+<p><strong>Operational rules: </strong>Designing for iOS requires dogmatic adherence to rules. Typography must be exclusively SF Pro, using predefined styles (Large Title, Headline, Body). Icons must be SF Symbols (never generic icons). System color is based on automatic Light/Dark modes with semantic colors (SystemBlue, SystemBackground). Liquid Glass material is applied to navigation elements and modals, requiring a native background blur. Corner rounding follows &#34;continuous curvature&#34; (mathematical squircle), not a simple radius. Usability demands minimum touch targets of 44x44pt and absolute respect for &#34;Safe Areas&#34; for the dynamic island and home indicator.</p>
+<p><strong>This is how the Cross-cutting example looks like using Apple Human Interface Guidelines:</strong></p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Student Notes Home</p>
+</td><td colspan="1" rowspan="1"><p>Note Editor View</p>
+</td><td colspan="1" rowspan="1"><p>Deadline Calendar</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\a5a74db8991b4adc.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\95f75936b5f700f1.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\74bf87e94a61d697.png"></p>
+</td></tr>
+</table>
+<p><strong>Now, a specific example will be created from scratch with a prompt:</strong></p>
+<p><strong><em>Prompt: </em></strong></p>
+<p><em>Create a crypto wallet dashboard for an iOS device. Use dark grey as base color. The app must feel safe and secure. The main &#39;Balance&#39; card should be embossed (pressed into the screen) to show it&#39;s a display area. Use SF Pro Display with tight tracking for headlines.<br></em></p>
+<p><strong><em>Used model:</em></strong></p>
+<p><em> Gemini 3.0 Flash<br></em></p>
+<p><strong><em>Estimated waiting time: </em></strong></p>
+<p><em>50 seconds</em></p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Wallet Dashboard</p>
+</td><td colspan="1" rowspan="1"><p>Send &amp; Receive</p>
+</td><td colspan="1" rowspan="1"><p>Market Trading</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\8eea107b2b533440.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\80aa5665ca374ed1.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\4a49cceb69d8a176.png"></p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Prompt engineering to generate UI" duration="15">
+        <p>The core of mastering Stitch lies in sophisticated prompt engineering, where the designer&#39;s ability to translate intent into a clear syntactic structure allows the Gemini model to process requests without ambiguity. Whether initiating a project with a high-level concept for brainstorming or a detailed specification for immediate functionality, the most effective results stem from clearly defining the design architecture—either by explicitly requesting a known Design System (especially with the 3.0 Pro model) or by using evocative adjectives to set the application&#39;s &#34;vibe.&#34; By articulating the desired emotional tone, such as &#34;elegant,&#34; &#34;playful,&#34; or &#34;sober,&#34; designers guide the model to automatically align fundamental aesthetic choices, including color palettes and font pairings, with the intended user experience from the very first interaction.</p>
+<p>Once the foundation is established, the workflow shifts to iterative refinement through specific, incremental instructions. Designers should prioritize the use of precise Design Tokens and keywords to control the app&#39;s theme, targeting distinct elements—such as updating a &#34;primary color&#34; token, adjusting &#34;button border radii,&#34; or defining specific typography styles—rather than making vague requests. This level of specificity extends to asset management and content localization, where prompts must clearly identify which images to modify or which system to apply to the text. By treating the prompt as a set of direct rules that govern the hierarchy of the screen, users ensure that the LLM produces results that are not only aesthetically coherent but also semantically correct and technically viable.</p>
+<p>When formulating the initial prompt for Stitch, clarity regarding the design objective is paramount. It is advantageous to pre-emptively address key strategic questions, such as the target operating system, the desired emotional resonance, the chromatic palette, and typographical style. Furthermore, determining adherence to specific design systems and the inclusion of visual assets, such as images or logos, establishes a solid foundation. However, should a concrete vision be absent, initiating the workflow with a broad conceptual statement is a valid approach. Recognizing that the initial output is rarely definitive, the interface design is perfected through an iterative process, relying on contextual dialogue and incremental refinements to polish the final result. For example:</p>
+<ul>
+<li>Problem: The AI generated buttons that were too small.<br>Correction Prompt: &#34;Increase the height of all primary buttons to 56dp to meet accessibility standards. Keep the corner radius as is.&#34;</li>
+<li>Problem: The text is not readable on the glass background.<br>Correction Prompt: &#34;Increase the opacity of the glass card background to 40% and add a subtle drop shadow to the white text.&#34;</li>
+</ul>
+<h2 is-upgraded>Zoom-Out-Zoom-In Framework</h2>
+<p>To build screens and prototypes from scratch with Stitch, we propose the Zoom-Out-Zoom-In Framework. This method divides the request into layers of decreasing abstraction:</p>
+<ul>
+<li>Zoom-Out (Global Context): Defines the purpose of the app, the target user, and the overall vibe.<br>Example: &#34;A meditation app for stressed corporate employees. The vibe should be calm, minimalist, and airy.&#34;</li>
+<li>Middle (Screen Structure): Defines the macro functional components.<br>Example: &#34;Screen: Player View. Include a large circular timer, a play/pause button, and a background nature scene.&#34;</li>
+<li>Zoom-In (Style and Language Details): Applies the specific Design system and its technical rules.<br>Example: &#34;Style: Glass Light. The timer container should be a frosted glass circle with a subtle inner glow. Use a thin, 1px white border. Typography should be sans-serif, thin weight.&#34;</li>
+</ul>
+<p>In this link  (<a href="https://stitch.withgoogle.com/projects/15573670033647925484" target="_blank">Open Google Stitch Zoom-Out-Zoom-In Example</a>)  there is an example of how to apply the Zoom-Out-Zoom-In Framework and how to guide the conversations to get better results.</p>
+<p>In this link (<a href="https://stitch.withgoogle.com/projects/17178370048456393519" target="_blank">Open Google Stitch 5-screen Example</a>) there is another example of how to create interfaces with more screens, developing a guided conversation, and prototyping multiple options</p>
+<h2 is-upgraded>Recommended First Prompt Structure</h2>
+<p>Although a definitive formula for perfect prompt engineering does not exist, adhering to the following syntactic structure is recommended to secure an optimal initial result. This template ensures that the model receives the critical context required for generation:</p>
+<p><em>&#34;Create/Design a mobile application for </em></p>
+<p><strong><em>[Target User | Specific Objective]</em></strong></p>
+<p><em>. The design should give/evoke/transmit </em></p>
+<p><strong><em>[Sensations or Emotions]</em></strong></p>
+<p><em>. Incorporate </em></p>
+<p><strong><em>[Color(s)]</em></strong></p>
+<p><em>, </em></p>
+<p><strong><em>[Logos/Assets]</em></strong></p>
+<p><em>, and </em></p>
+<p><strong><em>[Font Styles]</em></strong></p>
+<p><em>.&#34;</em></p>
+<p><strong>Application Examples</strong></p>
+<ul>
+<li><strong>Example 1:</strong> &#34;Create a mobile application for <strong>freelance graphic designers to manage portfolios</strong>. The design should transmit <strong>creativity and professionalism</strong>. Incorporate <strong>a dark grey background</strong>, <strong>minimalist icons</strong>, and <strong>a bold sans-serif typeface</strong>.&#34;</li>
+<li><strong>Example 2:</strong> &#34;Create a mobile application for <strong>elderly users to track medication schedules</strong>. The design should evoke <strong>safety and clarity</strong>. Incorporate <strong>high-contrast blue tones</strong>, <strong>large interactive elements</strong>, and <strong>a highly legible serif font</strong>.&#34;</li>
+</ul>
+<p>These structural templates serve as a foundational starting point for experimentation within the Stitch environment. For more complex implementations, the features detailed in <strong>Chapter 2</strong> of this tutorial provide the necessary tools for advanced customization and refinement.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="What &#39;s next?" duration="2">
+        <p>This tutorial has established a comprehensive framework for understanding Google Stitch, from its technical architecture based on Gemini models to the practical application of specific Design Systems. It is crucial to reiterate that while generative artificial intelligence significantly accelerates the development of graphical interfaces, the process remains fundamentally iterative and requires rigorous human validation. The ultimate quality of the result depends not on the algorithm alone, but on the designer&#39;s ability to direct the tool with precision and critical judgment. With the theoretical concepts and prompt engineering techniques now acquired, the focus shifts to practical experimentation. Finally, for those seeking to deepen their technical understanding or explore the theoretical foundations of the Design Systems discussed, a curated list of references is provided below.</p>
+<h2 is-upgraded>Reference docs</h2>
+<ul>
+<li><a href="https://discuss.ai.google.dev/t/stitch-prompt-guide/83844" target="_blank">Google Stitch Prompt Guide</a></li>
+<li><a href="https://www.codecademy.com/article/google-stitch-tutorial-ai-powered-ui-design-tool" target="_blank">Design Mobile App UI with Google Stitch (Step-by-Step Guide) | Codecademy</a> </li>
+<li><a href="https://uxpilot.ai/blogs/google-stitch-ai" target="_blank">Google Stitch AI Walkthrough: Comparison, Features, Alternatives and Pricing</a> </li>
+<li><a href="https://stitch.withgoogle.com/docs" target="_blank">Google Stitch Documentation</a> </li>
+<li><a href="https://m3.material.io/get-started" target="_blank">Material Design 3 Expressive guidelines</a> </li>
+<li><a href="https://fluent2.microsoft.design/design-principles" target="_blank">Microsoft Fluent 2 Design Principles</a> </li>
+<li><a href="https://www.justinmind.com/ui-design/neumorphism" target="_blank">Neumorphism: The art of shadow and light</a> </li>
+<li><a href="https://neumorphism.io/#e0e0e0" target="_blank">Neumorphism Design Generator</a> </li>
+<li><a href="https://www.interaction-design.org/literature/topics/glassmorphism" target="_blank">What is Glassmorphism?</a></li>
+<li><a href="https://hype4.academy/tools/glassmorphism-generator" target="_blank">Glass Light CSS Generator</a> </li>
+<li><a href="https://developer.apple.com/design/human-interface-guidelines" target="_blank">Apple Human Interfaces Guidelines</a> </li>
+</ul>
+<h3 is-upgraded>Version 1.0 - February 17, 2026</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Juan Diego Ortega Medina</p>
+</td><td colspan="1" rowspan="1"><p>Autor</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Mario Linares Vásquez</p>
+</td><td colspan="1" rowspan="1"><p>Revisor</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Camilo Escobar Velasquez</p>
+</td><td colspan="1" rowspan="1"><p>Revisor</p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

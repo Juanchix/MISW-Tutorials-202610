@@ -1,0 +1,28 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2026-02-18T19:09:53Z",
+  "id": "tutorial-google-stitch-101",
+  "duration": 86,
+  "title": "First Steps on AI-assisted UI prototyping with Google Stitch",
+  "authors": "Juan Diego Ortega",
+  "summary": "Learn how to use Google's new tool, Google Stitch, with Artificial Intelligence to design graphical interfaces for mobile applications.",
+  "source": "1-WNY8Dvn22636tKzlItvcU12WKJ4-4fJm-2BMMKafT8",
+  "theme": "media",
+  "status": [
+    "review"
+  ],
+  "category": [
+    "media",
+    "artificialintelligence",
+    "userinterface"
+  ],
+  "tags": [
+    "-"
+  ],
+  "feedback": "j.ortegam@uniandes.edu.co",
+  "ga": "N/A",
+  "url": "tutorial-google-stitch-101"
+}
