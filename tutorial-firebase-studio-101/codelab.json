@@ -1,0 +1,28 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2026-02-18T18:48:15Z",
+  "id": "tutorial-firebase-studio-101",
+  "duration": 70,
+  "title": "First Steps on AI-assisted app prototyping with Firebase Studio",
+  "authors": "Juan Diego Ortega",
+  "summary": "Learn how to use Google's tool, Firebase Studio, with Artificial Intelligence to create databases and back-end for mobile applications",
+  "source": "1Q6JQxPvFg-ZbjASRh69v_BmQv_Ezx5YNtSTCslnWs7E",
+  "theme": "artificialintelligence",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "artificialintelligence",
+    "database",
+    "back-end"
+  ],
+  "tags": [
+    "-"
+  ],
+  "feedback": "j.ortegam@uniandes.edu.co",
+  "ga": "N/A",
+  "url": "tutorial-firebase-studio-101"
+}

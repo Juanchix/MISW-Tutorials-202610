@@ -1,0 +1,250 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>First Steps on AI-assisted app prototyping with Firebase Studio</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
+  <google-codelab codelab-gaid="N/A"
+                  codelab-ga4id=""
+                  id="tutorial-firebase-studio-101"
+                  title="First Steps on AI-assisted app prototyping with Firebase Studio"
+                  environment="web"
+                  feedback-link="j.ortegam@uniandes.edu.co">
+    
+      <google-codelab-step label="Introduction" duration="3">
+        <p>The domain of software engineering is experiencing a notable paradigm shift. Traditionally, the development lifecycle required a wide range of tools: a local Integrated Development Environment (IDE) for coding, separate emulators for mobile build testing, unique cloud consoles for backend administration, etc. This context switching often introduces obstacles, slowing down the transition from a conceptual architecture to a deployable artifact.</p>
+<p>Nowadays, the industry is shifting towards <em>agentic</em>, cloud-native development environments. These environments do not just contain code; they also engage in its creation and oversight via Artificial Intelligence. This tutorial introduces Firebase Studio, a platform embodying the fusion of cloud infrastructure, generative AI, and conventional software engineering discipline.</p>
+<p>The following sections are designed to understand the capabilities, integrations and limitations of Firebase Studio. By the end of this module, the student will be equipped to leverage this tool not just for quick prototyping, but for building production-grade, full-stack applications with the efficiency demanded in contemporary DevOps workflows.</p>
+<p class="image-container"><img style="width: 252.00px" src="img\\dbe5c8bce13e51ef.png"></p>
+<aside class="special"><p><strong>Note:</strong> An <em>AI agent</em> is an advanced software system capable of perceiving its environment, reasoning, making decisions, and executing autonomous actions to achieve specific objectives.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="What is Firebase Studio?" duration="3">
+        <p>Firebase Studio is a cloud-based Integrated Development Environment (IDE) created by Google that is agentic in nature. Previously referred to as Project IDX, it transforms the conventional code editor into a cohesive workspace that incorporates the Gemini generative AI model directly into the development process.</p>
+<p>In contrast to typical code editors that only emphasize syntax, Firebase Studio operates as a &#34;Glass-Box&#34; approach. It enables the developer to create complete applications through natural language prompts while maintaining complete access to the foundational source code (constructed on Code OSS/VS Code) for detailed adjustments. It aims to address the &#34;blank canvas&#34; issue by expediting the initial framework stage while maintaining the engineering oversight required for intricate logic.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\934d35cbe262482c.png"></p>
+<h3 is-upgraded><strong>Core Architecture</strong></h3>
+<p>The platform is built upon three main pillars</p>
+<ul>
+<li><strong>The Prototyping Agent:</strong> A dialogue interface allowing developers to express requirements in everyday language (e.g., &#34;Build a dashboard to track server logs&#34;). The agent produces the required frontend and backend code instantly.</li>
+<li><strong>The Cloud IDE: </strong>A comprehensive, browser-based development environment that includes support for standard extensions, terminal access, and debugging features. This guarantees that any AI-generated code follows standard engineering practices and can be manually restructured.</li>
+<li><strong>Integrated Previews:</strong> In-house web and Android emulators that display the application immediately in the browser, removing the requirement for bulky local SDK setups</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Capabilities and Integrations" duration="5">
+        <p>Firebase Studio serves as an empowering, cloud-driven environment that integrates the complete development lifecycle. In contrast to conventional editors that serve as inactive instruments, Studio operates as an engaged collaborator in the creative process. Here are the essential features that characterize this environment for the user.</p>
+<p><strong>Agentic AI &amp; The &#34;Glass-Box&#34; Approach</strong></p>
+<p>The core of the platform is the App Prototyping Agent. This feature enables the user to outline an application using natural language (e.g., &#34;A task management app featuring a kanban board&#34;) and obtain a complete codebase in response.</p>
+<p>Importantly, Firebase Studio functions based on a &#34;Glass-Box&#34; principle. Although the AI creates the initial framework, it does not conceal the code in a &#34;black box.&#34; The user maintains complete access to all files, scripts, and configurations produced, enabling them to review, alter, and expand the AI&#39;s output with conventional coding methods.</p>
+<p><strong>Flexible Import Options</strong></p>
+<p>The platform understands that development doesn&#39;t always begin with an empty slate. It provides flexible import features to accommodate various starting positions:</p>
+<ul>
+<li><strong>From Code:</strong> Users can clone repositories straight from GitHub, GitLab, or Bitbucket, or they can upload a local archive to transfer an existing project into the cloud environment.</li>
+<li><strong>From Figma Design:</strong> Users can connect design and code by importing designs from Figma. The Studio analyzes the visual design and automatically creates the related frontend code, greatly decreasing the time required for UI development.</li>
+</ul>
+<p><strong>Cross-Platform Previews and Simulators</strong></p>
+<p>To enable quick testing, the workspace features integrated, high-quality previews that operate directly in the browser.</p>
+<ul>
+<li><strong>Web Preview: </strong>Designed for adaptable web applications.</li>
+<li><strong>Android Emulator: </strong>An entirely interactive Android emulator that enables users to test mobile flows (gestures, navigation) without needing to install bulky SDKs or having a high-performance local machine.</li>
+<li><strong>iOS Simulator: </strong>Offers access to iOS testing environments, facilitating genuine cross-platform development from a non-Apple device</li>
+</ul>
+<p><strong>Customization of a Nix-Based Environment</strong></p>
+<p>Every workspace operates on Nix, a robust package manager, behind the scenes. This guarantees that the development environment remains consistent and reproducible.</p>
+<p>The user can specify precisely which tools, compilers, and extensions are required in an easy configuration file (dev.nix). This establishes a &#34;works on my machine&#34; assurance for anyone accessing the project, since the environment sets itself up automatically based on these specifications.</p>
+<p><strong>Smooth Implementation</strong></p>
+<p>The route from code to deployment is efficient. The user is able to launch their application on Firebase App Hosting or Cloud Run with just one click. This integration simplifies the process of setting up build pipelines and managing servers manually, enabling the user to promptly share a live URL with stakeholders right after development</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Before starting" duration="5">
+        <p>As mentioned in the previous chapter, Firebase Studio counts with many Capabilities and Integrations, which can be detailed upon just entering the start screen. At the memento of entering Firebase Studio for the first time, a dashboard will be found which has a text box arranged so that a first prompt can be written to create a prototype. It is here where the idea that is had in mind must be drafted with clarity so that Firebase Studio creates the prototype. In the same text box a &#34;clip&#34; appears, which, by clicking on it, images of how the graphic interface is wanted to be seen can be attached, if a first design or ideas of the same are already had.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\915c7b037c2457c6.png"></p>
+<p>Below this text box, several options are found to create &#34;Workspaces&#34;, these are the &#34;repositories&#34; where the prototypes and their code will remain created. A new Workspace can be created by choosing some specific technology upon which it is desired to develop the project from 0, or, if it is desired, a GitHub repository can be imported, and all the content of the same will be brought to Firebase Studio for its editing.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\e4f40d7143917856.png"></p>
+<p>Within the Templates that can be found to create a project from 0, templates can be found for web development, backend development, mobile development, AI &amp; ML development, Databases development, and a miscellany of options. Furthermore, the latest integrations with Firebase Studio and example solutions arranged for their study can also be seen.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\3f7f4b25e7bb1019.png"></p>
+<p class="image-container"><img style="width: 601.70px" src="img\\81c8467f2cd117e2.png"></p>
+<aside class="warning"><p><strong>Note:</strong> For the purposes of this tutorial, examples for mobile applications will be illustrated. By default, when speaking of a mobile application, Firebase Studio creates the first prototype with React Native and NextJS, but prototypes can also be created with Flutter, the mobile programming language created by Google. Particularly, if it is desired to create applications with Kotlin, it can be requested through a form that is filled out at the moment of creating an Android Studio Web workspace. Other alternatives are recommended to program with this language, such as <a href="https://developer.android.com/studio?hl=es-419" target="_blank">Android Studio</a> or <a href="https://antigravity.google/" target="_blank">Antigravity</a>.</p>
+<p>As Firebase Studio works with LLMs (Large Language Models), the obtained results are probabilistic and can vary, so the illustrated examples are purely for reference.</p>
+<p>Finally, to have a better understanding of the tool, it is recommended to have a separate tab with Firebase Studio open, to be able to explore all the described functionalities. Only a Google account is required, and, if one has it, a GitHub account.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Example 1 - Only with a prompt" duration="8">
+        <p>For this example, the following prompt has been drafted: <strong><em>&#34;Create a mobile application for currency and crypto exchange transactions. I want the frontend to follow Material Design principles, with yellow as the main color and in dark mode.&#34;</em></strong></p>
+<p>With the prompt entered, Firebase Studio will design an execution plan, which illustrates the content of what it is going to prototype, how it will do it, what colors it will use, what programming languages it will implement, etc. This plan can be modified if desired, by clicking the option &#34;Customize&#34;.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\46fea8e33eb7b505.png"></p>
+<p>Once the desired plan is obtained, &#34;Prototype this App&#34; is clicked, and thus Firebase Studio will create all the necessary files to make that idea a reality. This may take a few minutes.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\e76c5b9490acd825.png"></p>
+<p>The prototype created, two modes are available: <strong>Prototyper Mode</strong>, which is the default mode and in which the user initially interacts, keeping the AI agent on the right side, and the functional and interactable prototype on the left side. The second mode is <strong>Code Mode</strong>, which is the mode in which manual changes to the code can be performed. In this mode, it can be observed, from left to right, a space with the created folders, a code editor, the functional and interactable prototype, and the AI agent.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\75065bf85b808009.png"></p>
+<p>If it is desired to perform changes, they can be done manually by writing the code or simply by asking it to the AI Agent. This will include the changes directly in the code and prototype. The process of changing or adding functionalities on the prototype is an iterative process, depending on the desired requirements. In the Prompt Engineering chapter, it is expanded more about the form and structure of the prompts to achieve better results. For this example, the following prompt was added to the prototype:<strong><em> &#34;I want you to add a home tab where you can see balance sheet information, the three most valuable currencies, and the three most valuable cryptocurrencies with a small graph on the right summarizing the performance of those currencies, and a history of transactions made.&#34;</em></strong></p>
+<p class="image-container"><img style="width: 601.70px" src="img\\f7d9f2d018643758.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Example 2 - With a pre-designed interface (code) &#43; prompt" duration="8">
+        <p>For this example, the following prompt was used: &#34;Design a mobile app that is similar to a wallet, that shows you the active cards you have and that is with a dark background and a main green color. Furthermore, it will be for Android, so follow the principles of material design. Additionally, I will pass you an html code with the structure of the home screen that I desire you to follow:&#34;</p>
+<p>The HTML code previously shown builds this interface:</p>
+<p class="image-container"><img style="width: 240.96px" src="img\\96e44ae6fbc41734.png"></p>
+<p>As in the previous example, Firebase Studio creates an execution plan in which it explains the details it will take into account to create the prototype. It is important to remember to validate this execution plan to obtain better results. Once all the details are adjusted to the needs, it can be continued with the creation of the prototype. On this occasion, only one screen has been created for the digital wallet application. But a consideration must be taken into account, whether in &#34;Prototype Mode&#34; or in &#34;Code Mode&#34;, and it is that the probability that failures exist at the moment of inserting code is high. This means, that the suggested is to debug in &#34;Code Mode&#34; screen by screen to correct said errors early. It can be known that there are errors in the prototype by visualizing that in the lower left corner the &#34;N&#34; is marked in red. The enormous advantage that inserting code in Firebase Studio has is that the reliability between the design and the prototype is very high, producing much more exact results.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\ae9d25159648a0f1.png"></p>
+<aside class="special"><p><strong>Note:</strong> The reference code and image were generated by another Google tool called <a href="https://stitch.withgoogle.com/" target="_blank">Google Stitch</a>.. This tool can generate graphic interfaces based on a prompt, as illustrated in this example.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Example 3 - With a pre-designed interface (image) &#43; Firebase integration" duration="13">
+        <p>For this example, before creating a first prototype, and for security reasons, it is necessary to have an active Google account with two-factor authentication, so that the project that is going to be created can access Firebase and create a new database on which the information that the application captures will be stored. With the account ready, a new workspace can be created for the application, or alternatively, use an existing workspace.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\67c25dd13f1acda1.png"></p>
+<p>In this case, a Flutter Workspace was created. Upon starting a new Flutter Workspace, it comes by default in &#34;Code Mode&#34;, which means that the files, the code, the prototype, and the AI agent are visualized. In the AI agent, the following prompt was inserted, together with 3 reference images:<strong><em> &#34;I want you to create an application for tracking a university student&#39;s academic tasks. Create the three screens shown in the reference images and follow the rules of the neumorphism design system.&#34; </em></strong></p>
+<p>Las imagenes de referencia fueron diseñadas por otra herramienta de Google, llamada Google Stitch</p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Student Notes Home</p>
+</td><td colspan="1" rowspan="1"><p>Note Editor View</p>
+</td><td colspan="1" rowspan="1"><p>Deadline Calendar</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\150f87d4bc8a191a.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\9b9d97b7cfff2d9c.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 186.00px" src="img\\c57133deee51fce5.png"></p>
+</td></tr>
+</table>
+<p>As the AI Agent creates the changes, it informs about them file by file so that the programmer reviews them, and if everything is in order, executes the changes for the respective modification of the files. This process is extremely important since code <strong>validation is required </strong>for a correct implementation of the desired prototype.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\b906dfc9835f9998.png"></p>
+<p>Once the expected changes have been implemented in the application, it can be executed to be able to visualize the prototype and interact with it. If more changes are desired, they can be done directly in the code or by asking the AI agent.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\500ed2051f86a96f.png"></p>
+<p>Now, to connect the application to a Firebase database, it is as simple as asking the AI agent. Again, it must be ensured that two-factor authentication is active on the account where the database creation is desired. To ensure that the database was effectively created, the Firebase portal must be visited to check that the database is associated with the workspace created in Firebase Studio.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\a6ccb3dd006f5d5.png"></p>
+<p class="image-container"><img style="width: 601.70px" src="img\\5f098b887d743d46.png"></p>
+<p>Creating a database in Firebase and connecting it to the application can also be done in Prototype Mode. Just like in Code Mode, it is as simple as asking the AI agent and it will create the database and include the necessary dependencies in the application for its functioning. The application from example 1 is provided as an example.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\6c04128bcfc5ba24.png"></p>
+<p class="image-container"><img style="width: 601.70px" src="img\\6d73cc6c0535af34.png"></p>
+<aside class="special"><p><strong>Note: </strong>The reference images were generated by another Google tool called <a href="https://stitch.withgoogle.com/" target="_blank">Google Stitch</a>.. This tool can generate graphic interfaces based on a prompt, as illustrated in this example.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Example 4 - With an existing GitHub repository" duration="8">
+        <p>For this example, it is required to have a repository created in GitHub with some project. It can be web, backend, etc., but for the purposes of this tutorial, it will be done with a repository of a mobile application for surveillance equipment inventory management developed in Kotlin. A local repository can also be imported, if the code is not uploaded to GitHub.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\a88613a1f45fc5e0.png"></p>
+<p>It is important to highlight that, just as with Firebase, permissions must be given to be able to access the GitHub information, as well as having two-factor authentication activated. To import the repository, the repository hyperlink must be copied and the Workspace named as desired. This name does not directly impact the original repository.</p>
+<p class="image-container"><img style="width: 601.70px" src="img\\e5a6c0ec06d17f62.png"></p>
+<p>With the imported repository code, the same structure continues to be handled: a zone where files and folders are observed, a zone where the code is visualized, a zone where the prototype can be deployed and interacted with, and the AI agent arranged to generate code and repair errors. It also counts with Git version control, that means that, once changes are created, a push can be made to a branch, or in case the project is shared, the changes can be brought by making a pull, etc.</p>
+<p class="image-container"><img style="width: 316.02px" src="img\\de9bc8cdf4bf490.png"><img style="width: 601.70px" src="img\\75330402e94cec63.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Prompt Engineering" duration="15">
+        <p>In an agentic development environment, the prompt is not just a request; it is the blueprint. The effectiveness of the user in expressing requirements significantly influences the quality, security, and maintainability of the generated application.The documentation of Firebase Studio highlights that although the AI is robust, it needs specific direction to operate effectively as a capable &#34;Junior Engineer.&#34;</p>
+<p>This segment details the approaches for efficient interaction with the Prototyping Agent</p>
+<h3 is-upgraded>Guidelines</h3>
+<ul>
+<li>Specificity and Technology Constraints: The user must explicitly outline functionalities, user interactions, and data requirements. Clearly defining the preferred technology stack is very advantageous</li>
+<li><em>Example:</em> Instead of requesting &#34;a web app with 3D elements,&#34; the user should explicitly ask Gemini to <em>&#34;create a web app using Three.js for 3D rendering.&#34;</em></li>
+<li>Service Provisioning vs. Code Generation: It is important to distinguish between writing code and setting up infrastructure. Gemini can write the code to interact with an API (like Stripe or Cloud Storage), but it cannot physically create the account or enable the API in the Google Cloud Console.</li>
+<li><em>Strategy:</em> When requesting code for specific services, the user should explicitly instruct Gemini to <em>&#34;include steps on how to manually set up these services&#34;</em> to ensure no infrastructure gaps remain.</li>
+<li>Firebase Integration: An important exception to the provisioning guideline is Firebase itself. If the user requests the App Prototyping agent to &#34;Assist me with Firestore&#34; or &#34;Link my app to Firebase,&#34; the agent can set up a Firebase project for the user.</li>
+<li>Context and Interaction: The prompt should include background information regarding the app&#39;s purpose and target audience. Furthermore, providing concrete examples of how a user interacts with the interface or providing sample data structures helps the AI visualize the expected result.</li>
+</ul>
+<h3 is-upgraded>Refinement Strategies</h3>
+<p>If the initial output does not meet expectations, the user should refine the prompt using the following techniques instead of discarding the draft:</p>
+<ol type="1" start="1">
+<li>Iterative Development: Approach the build process incrementally. The user should start with a basic request, test the result, and then add features one by one.</li>
+<li>Add Constraints and Keywords: Define limitations on the user interface or data structure using widely accepted keywords. For example, employing the phrase &#34;Material Design&#34; instructs the LLM to conform to particular Google design guidelines.</li>
+<li>Chain of Thought Reasoning: If the model struggles with complex logic, the user can force it to reason by asking it to <em>&#34;Think step by step.&#34;</em></li>
+</ol>
+<ul>
+<li><em>Example: &#34;Think step by step. I want to create an input box for my task app. It first needs a validator, then an &#39;Add task&#39; button, and finally a &#39;Cancel&#39; button.&#34;</em></li>
+</ul>
+<ol type="1" start="4">
+<li>Meta-Prompting: Users can utilize Gemini directly (through Gemini for Google or the chat in Code view) to enhance prompt crafting for the App Prototyping agent.</li>
+</ol>
+<h3 is-upgraded>Debugging</h3>
+<p>While Gemini acts as a powerful accelerator, it is not infallible. It can generate code that has syntax mistakes, logical errors, or hallucinations (assured but wrong responses). Debugging in Firebase Studio involves a teamwork approach between the user and the AI.</p>
+<ul>
+<li>Contextual Description: Simply pasting an error message is often insufficient. The user must explain the behavior they noticed along with the error. Offering the complete context assists Gemini in determining if the problem is a syntax mistake or a more fundamental logic issue.</li>
+<li>Direct Interrogation: The user is encouraged to ask direct, technical questions about the codebase.</li>
+<li><em>Example: &#34;What could be causing a null pointer exception in this function?&#34;</em> or <em>&#34;How can I prevent a race condition in this specific data fetch?&#34;</em></li>
+<li>Decomposition: For complex bugs, the user should break the problem into smaller components and ask Gemini to debug each part separately.</li>
+<li>Code Fences: To accurately parse the syntax, the user must use Markdown code fences (```) when sharing snippets for analysis.</li>
+<li>Provide Counter-Examples: If the AI is forming wrong assumptions, the user needs to clearly present a contradictory example to illustrate the right behavior.</li>
+<li>Reset the Context: The AI&#39;s &#34;memory&#34; of the conversation can sometimes become cluttered with earlier misunderstandings. Starting a new chat session resets the context window, enabling the user to approach the problem anew without the weight of previous failures</li>
+</ul>
+<h3 is-upgraded>Prompt examples</h3>
+<p>To illustrate the level of detail required, consider these examples for different application types:</p>
+<p>Budgeting App</p>
+<p><em>&#34;Create a budgeting and expense tracking app with spending categories, charts, and budget goals. Include a clean dashboard with key insights. The app should allow users to manually add expenses or upload CSV files. Additionally, allow users to upload receipts, then use AI to convert the receipt into an expense entry that users can edit. Data should be stored in browser cache, with download and delete options.&#34;</em></p>
+<p>Logic Puzzle</p>
+<p><em>&#34;Generate a delightful sliding number puzzle game (15-puzzle) with Javascript, HTML, and CSS.</em></p>
+<ul>
+<li><em>Setup: Create a 4x4 grid with numbers 1-15 and one empty space. Use a solvable shuffling algorithm to randomize the start.</em></li>
+<li><em>Gameplay: Allow clicking tiles adjacent to the empty space to slide them. Count and display the number of moves.</em></li>
+<li><em>Timer: Include a countdown timer starting at 120 seconds.</em></li>
+<li><em>End Conditions: If solved, alert with an encouraging winning statement generated by AI. If the timer reaches 0, alert with a funny retort generated by AI.&#34;</em></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="What is next?" duration="2">
+        <p>With this tutorial, a first approximation to some of the functionalities that Firebase Studio offers has been had; however, there are still many ways and tools that can be explored. It is recommended to explore the &#34;Extensions&#34; section that is found within each workspace. These extensions provide even more ways to be able to integrate different tools to Firebase Studio, just as it happens in Visual Studio Code.</p>
+<p>Emphasis is made that, although the AI agent generates the requested code according to the prompts, the code must be reviewed, since it can generate failures or simply does not fulfill the requirements fully, so this task is the responsibility of the programmer.</p>
+<h2 is-upgraded>Reference docs</h2>
+<p><a href="https://firebase.google.com/docs/studio" target="_blank">Full Firebase Studio Documentation</a> </p>
+<h3 is-upgraded>Version 1.0 - February 17, 2026</h3>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Juan Diego Ortega Medina</p>
+</td><td colspan="1" rowspan="1"><p>Autor</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Mario Linares Vásquez</p>
+</td><td colspan="1" rowspan="1"><p>Revisor</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Camilo Escobar Velasquez</p>
+</td><td colspan="1" rowspan="1"><p>Revisor</p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
